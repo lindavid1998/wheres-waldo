@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Progress from './Progress';
 
 const HeaderText = styled.h1`
 	font-size: 1.4rem;
@@ -7,10 +8,11 @@ const HeaderText = styled.h1`
 	padding: 10px;
 `;
 
-function Header() {
-	return (
+const Header = () => {
+  return (
 		<div className='Header'>
-			<HeaderText>Where's Waldo?</HeaderText>
+      <HeaderText>Where's Waldo?</HeaderText>
+      <Progress></Progress>
 		</div>
 	);
 }

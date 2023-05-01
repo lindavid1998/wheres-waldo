@@ -23,5 +23,4 @@ yarn-debug.log*
 yarn-error.log*
 
 src/store_demo.js
-src/store.js
 src/App store_demo.js
