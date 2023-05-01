@@ -1,0 +1,32 @@
+:root {
+  /* Background color */
+  --bg-color: #1e1e1e;
+
+  /* Text color */
+  --text-color: #fff;
+
+  /* Link color */
+  --link-color: #fff;
+
+  /* Accent color */
+  --accent-color: #ff9933;
+}
+
+/* Apply dark mode styles to all elements */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+a {
+  color: var(--link-color);
+}
+
+/* Apply accent color to selected elements */
+button,
+a:hover,
+a:focus {
+  background-color: var(--accent-color);
+  color: var(--text-color);
+}
