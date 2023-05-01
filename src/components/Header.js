@@ -4,8 +4,8 @@ import Progress from './Progress';
 
 const HeaderText = styled.h1`
 	font-size: 1.4rem;
-	margin: 0;
-	padding: 10px;
+	margin: 0 0 10px 0;
+  padding: 0;
 `;
 
 const Header = () => {

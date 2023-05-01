@@ -10,6 +10,8 @@
 
   /* Accent color */
   --accent-color: #ff9933;
+
+  box-sizing: border-box;
 }
 
 /* Apply dark mode styles to all elements */
@@ -17,6 +19,7 @@ body {
   background-color: var(--bg-color);
   color: var(--text-color);
   font-family:Arial, Helvetica, sans-serif;
+  padding: 20px;
 }
 
 a {
