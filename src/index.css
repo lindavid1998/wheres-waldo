@@ -1,12 +1,11 @@
 :root {
   /* Background color */
-  --bg-color: #1e1e1e;
+  --bg-color: hsl(0, 0%, 12%);
+  --bg-color-lighter: hsl(0, 0%, 15%);
 
   /* Text color */
-  --text-color: #fff;
-
-  /* Link color */
-  --link-color: #fff;
+  --text-color: #f1f1f1;
+  --text-color-darker: #7a7a7a;
 
   /* Accent color */
   --accent-color: #ff9933;
