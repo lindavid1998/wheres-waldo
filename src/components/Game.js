@@ -10,6 +10,7 @@ import { hideAnswerBox, showAnswerBox } from '../store';
 const Img = styled.img`
 	width: 100%;
 	height: auto;
+	z-index: -1;
 `;
 
 const Main = styled.div`
