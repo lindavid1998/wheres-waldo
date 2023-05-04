@@ -9,6 +9,7 @@ const UnorderedList = styled.ul`
   display: flex;
   gap: 50px;
   justify-content: space-around;
+  margin: 40px 0;
 `;
 
 const Progress = () => {

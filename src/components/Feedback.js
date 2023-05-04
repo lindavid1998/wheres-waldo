@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 
-export const Message = styled.div`
+const Message = styled.div`
 	padding: 1rem 3rem;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 	border-radius: 3px;
@@ -12,19 +12,19 @@ export const Message = styled.div`
 	background-color: var(--bg-color-lighter);
 	gap: 10px;
   position: absolute;
-  top: 15px;
+  top: 50px;
 `;
 
-const Main = styled.div`
+const MainText = styled.div`
 	font-size: 1.3rem;
 	font-weight: bold;
 `;
 
-const Success = styled(Main)`
+const Success = styled(MainText)`
 	color: #00e175;
 `;
 
-const Failure = styled(Main)`
+const Failure = styled(MainText)`
 	color: red;
 `;
 
