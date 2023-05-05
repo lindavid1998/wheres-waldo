@@ -21,7 +21,7 @@ const MainText = styled.div`
 `;
 
 const Success = styled(MainText)`
-	color: #00e175;
+	color: var(--success-color);
 `;
 
 const Failure = styled(MainText)`

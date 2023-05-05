@@ -10,7 +10,6 @@ import { hideAnswerBox, showAnswerBox } from '../store';
 const Img = styled.img`
 	width: 100%;
 	height: auto;
-	z-index: -1;
 `;
 
 const Main = styled.div`
@@ -38,18 +37,19 @@ const Game = () => {
 	};
 
 	useEffect(() => {
-		const handleClick = (e) => {
-			console.log(e.target);
-			console.log(parentRef.current);
+		const toggleAnsBoxVisibility = (e) => {
 			parentRef.current.contains(e.target)
 				? dispatch(showAnswerBox())
 				: dispatch(hideAnswerBox());
 		};
 
-		document.addEventListener('click', handleClick);
+		document.addEventListener('click', toggleAnsBoxVisibility);
+		document.addEventListener('keydown', (e) => {
+			e.key === 'Escape' && dispatch(hideAnswerBox()) 
+		});
 
 		return () => {
-			document.removeEventListener('click', handleClick);
+			document.removeEventListener('click', toggleAnsBoxVisibility);
 		};
 	});
 

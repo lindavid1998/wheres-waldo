@@ -1,23 +1,26 @@
 import { configureStore } from '@reduxjs/toolkit';
+import R2D2 from './images/R2D2.png';
+import Finn from './images/finn.png';
+import HanSolo from './images/han_solo.png';
 
 const targetOne = {
 	id: 0,
-	name: 'some name',
-	imgSrc: '',
+	name: 'R2D2',
+	imgSrc: R2D2,
 	isFound: false,
 };
 
 const targetTwo = {
 	id: 1,
-	name: 'some other name',
-	imgSrc: '',
+	name: 'Finn',
+	imgSrc: Finn,
 	isFound: false,
 };
 
 const targetThree = {
 	id: 2,
-	name: 'name 3',
-	imgSrc: '',
+	name: 'Han Solo',
+	imgSrc: HanSolo,
 	isFound: false,
 };
 
@@ -27,22 +30,22 @@ const initialState = {
 	isAnsBoxVisible: false,
 };
 
-const SUBMIT_ANSWER = 'SUBMIT_ANSWER'
-const SHOW_ANSWER_BOX = 'SHOW_ANSWER_BOX'
-const HIDE_ANSWER_BOX = 'HIDE_ANSWER_BOX'
+const SUBMIT_ANSWER = 'SUBMIT_ANSWER';
+const SHOW_ANSWER_BOX = 'SHOW_ANSWER_BOX';
+const HIDE_ANSWER_BOX = 'HIDE_ANSWER_BOX';
 
 const submitAnswer = (id) => {
-  return {
+	return {
 		type: SUBMIT_ANSWER,
 		info: id,
 	};
-}
+};
 
 const showAnswerBox = () => {
 	return {
-		type: SHOW_ANSWER_BOX
-	}
-}
+		type: SHOW_ANSWER_BOX,
+	};
+};
 
 const hideAnswerBox = () => {
 	return {
@@ -51,7 +54,7 @@ const hideAnswerBox = () => {
 };
 
 const reducer = (state = initialState, action) => {
-  switch (action.type) {
+	switch (action.type) {
 		case SUBMIT_ANSWER:
 			// console.log('test');
 			// add logic here for checking answer
@@ -72,10 +75,10 @@ const reducer = (state = initialState, action) => {
 		default:
 			return state;
 	}
-}
+};
 
 const store = configureStore({
 	reducer: reducer,
 });
 
-export { store, submitAnswer, showAnswerBox, hideAnswerBox }
+export { store, submitAnswer, showAnswerBox, hideAnswerBox };
