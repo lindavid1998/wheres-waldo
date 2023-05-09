@@ -23,6 +23,7 @@ const ImgContainer = styled.div`
 	width: 80px;
 	height: 80px;
 	transition: 0.2s all ease-in-out;
+  border-radius: 50%;
 	background: ${(props) =>
 		props.isFound ? 'black' : null};
 `;
@@ -30,6 +31,7 @@ const ImgContainer = styled.div`
 const Img = styled.img`
 	width: 100%;
 	height: 100%;
+	border-radius: 50%;
 	object-fit: cover;
 	opacity: ${(props) => (props.isFound ? '0.4' : null)};
 `;
