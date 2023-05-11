@@ -8,9 +8,9 @@ const targetOne = {
 	name: 'R2D2',
 	imgSrc: R2D2,
 	isFound: false,
-	position: {
-		north: { x: 0.064, y: 0.426 },
-		south: { x: 0.089, y: 0.448 },
+	boundary: {
+		north: { x: 0.062, y: 0.360 },
+		south: { x: 0.089, y: 0.379 },
 	},
 };
 
@@ -19,9 +19,9 @@ const targetTwo = {
 	name: 'Finn',
 	imgSrc: Finn,
 	isFound: false,
-	position: {
-		north: { x: 872, y: 1010 },
-		south: { x: 945, y: 1113 },
+	boundary: {
+		north: { x: 0.53, y: 0.38 },
+		south: { x: 0.56, y: 0.41 },
 	},
 };
 
@@ -30,9 +30,9 @@ const targetThree = {
 	name: 'Han Solo',
 	imgSrc: HanSolo,
 	isFound: false,
-	position: {
-		north: { x: 1277, y: 788 },
-		south: { x: 1342, y: 858 },
+	boundary: {
+		north: { x: 0.77, y: 0.29 },
+		south: { x: 0.80, y: 0.32 },
 	},
 };
 

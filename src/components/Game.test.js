@@ -54,7 +54,3 @@ describe('Game', () => {
 		await waitForElementToBeRemoved(() => screen.queryByTestId('AnswerBox'));
 	});
 });
-
-// isClickWithinTarget()
-// it.todo('should return true if click is within target boundaries');
-// it.todo('should return false if click is outside target boundaries');
