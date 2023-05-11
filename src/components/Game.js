@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 import backgroundImage from '../images/star_wars_illustration.jpeg';
-import Feedback from './Feedback';
 import AnswerBox from './AnswerBox';
 import { useState, useRef, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
@@ -16,7 +15,6 @@ const Main = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	position: relative;
 `;
 
 const Game = () => {
@@ -24,28 +22,29 @@ const Game = () => {
 	const parentRef = useRef();
 	const dispatch = useDispatch();
 
-	const [answerBoxPosX, setAnswerBoxPosX] = useState(0);
-	const [answerBoxPosY, setAnswerBoxPosY] = useState(0);
+	const [ansBoxPosition, setAnsBoxPosition] = useState({});
 
-	const setAnsBoxPosition = (e) => {
-		const offset = e.target.getBoundingClientRect();
-		const xOffset = offset.x;
-		const yOffset = offset.y;
-
-		setAnswerBoxPosX(e.clientX - xOffset);
-		setAnswerBoxPosY(e.clientY - yOffset);
+	const checkAns = (targetId) => {
+		// hide answer box
+		dispatch(hideAnswerBox());
 	};
 
 	useEffect(() => {
 		const toggleAnsBoxVisibility = (e) => {
-			parentRef.current.contains(e.target)
-				? dispatch(showAnswerBox())
-				: dispatch(hideAnswerBox());
+			const isInsideParentRef = parentRef.current.contains(e.target);
+			if (isInsideParentRef && !isAnsBoxVisible) {
+				dispatch(showAnswerBox());
+			} else if (!isInsideParentRef && isAnsBoxVisible) {
+				dispatch(hideAnswerBox());
+			}
 		};
 
 		document.addEventListener('click', toggleAnsBoxVisibility);
+
 		document.addEventListener('keydown', (e) => {
-			e.key === 'Escape' && dispatch(hideAnswerBox()) 
+			if (isAnsBoxVisible && e.key === 'Escape') {
+				dispatch(hideAnswerBox());
+			}
 		});
 
 		return () => {
@@ -55,10 +54,18 @@ const Game = () => {
 
 	return (
 		<Main ref={parentRef}>
-			{/* <Feedback></Feedback> */}
-			<Img onClick={setAnsBoxPosition} src={backgroundImage} />
+			<Img
+				src={backgroundImage}
+				data-testid='game-image'
+				className='game-image'
+				onClick={(e) => {
+					const x = e.clientX;
+					const y = e.clientY;
+					setAnsBoxPosition({ x, y });
+				}}
+			/>
 			{isAnsBoxVisible && (
-				<AnswerBox xPos={answerBoxPosX} yPos={answerBoxPosY} />
+				<AnswerBox position={ansBoxPosition} checkAns={checkAns} />
 			)}
 		</Main>
 	);
