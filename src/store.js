@@ -9,7 +9,7 @@ const targetOne = {
 	imgSrc: R2D2,
 	isFound: false,
 	boundary: {
-		north: { x: 0.062, y: 0.360 },
+		north: { x: 0.062, y: 0.36 },
 		south: { x: 0.089, y: 0.379 },
 	},
 };
@@ -32,7 +32,7 @@ const targetThree = {
 	isFound: false,
 	boundary: {
 		north: { x: 0.77, y: 0.29 },
-		south: { x: 0.80, y: 0.32 },
+		south: { x: 0.8, y: 0.32 },
 	},
 };
 
@@ -42,14 +42,14 @@ const initialState = {
 	isAnsBoxVisible: false,
 };
 
-const SUBMIT_ANSWER = 'SUBMIT_ANSWER';
+const MARK_AS_FOUND = 'MARK_AS_FOUND';
 const SHOW_ANSWER_BOX = 'SHOW_ANSWER_BOX';
 const HIDE_ANSWER_BOX = 'HIDE_ANSWER_BOX';
 
-const submitAnswer = (id) => {
+const markAsFound = (id) => {
 	return {
-		type: SUBMIT_ANSWER,
-		info: id,
+		type: MARK_AS_FOUND,
+		payload: id,
 	};
 };
 
@@ -67,12 +67,21 @@ const hideAnswerBox = () => {
 
 const reducer = (state = initialState, action) => {
 	switch (action.type) {
-		case SUBMIT_ANSWER:
-			// console.log('test');
-			// add logic here for checking answer
+		case MARK_AS_FOUND:
+			const updatedTargets = state.targets.map((target) => {
+				if (target.id === action.payload) {
+					return {
+						...target,
+						isFound: true,
+					};
+				} else {
+					return target;
+				}
+			});
+
 			return {
 				...state,
-				isAnswered: true,
+				targets: updatedTargets,
 			};
 		case SHOW_ANSWER_BOX:
 			return {
@@ -93,4 +102,4 @@ const store = configureStore({
 	reducer: reducer,
 });
 
-export { store, submitAnswer, showAnswerBox, hideAnswerBox };
+export { store, markAsFound, showAnswerBox, hideAnswerBox };

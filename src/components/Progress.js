@@ -40,7 +40,7 @@ const Name = styled.div`
   font-weight: bold;
   font-size: 1.1rem;
 	color: ${(props) =>
-		props.isFound ? 'var(--success-color)' : 'var(--text-color'};
+		props.isFound ? 'var(--success-color)' : 'var(--text-color)'};
 `;
 
 const Icon = (props) => {

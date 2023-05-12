@@ -30,7 +30,11 @@ const AnswerBox = ({ position, checkAns }) => {
 		<div data-testid='AnswerBox'>
 			<StyledDiv xPos={position.x} yPos={position.y}>
 				{targets.map((target) => (
-					<Row key={target.id} onClick={() => checkAns(target.id)}>
+					<Row
+						key={target.id}
+						onClick={() => checkAns(target.id)}
+						data-testid='answer'
+					>
 						{target.name}
 					</Row>
 				))}
