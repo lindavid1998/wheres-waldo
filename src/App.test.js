@@ -10,12 +10,15 @@ import {
 } from './utils/helpers';
 import '@testing-library/jest-dom';
 import 'jest-styled-components';
+import { act } from 'react-dom/test-utils';
 
 jest.mock('./utils/helpers', () => ({
 	getImgDimensions: jest.fn(),
 	convertTargetBoundaryToPixels: jest.fn(),
 	isInputWithinBoundary: jest.fn(),
 }));
+
+jest.useFakeTimers();
 
 describe('App', () => {
 	it('should update icons in progress bar based on whether the answer is correct', async () => {
@@ -63,4 +66,6 @@ describe('App', () => {
 			);
 		});
 	});
+
+	it.todo('should stop the stopwatch when all targets have been found');
 });
