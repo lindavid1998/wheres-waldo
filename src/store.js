@@ -39,11 +39,20 @@ const targetThree = {
 const initialState = {
   targets: [targetOne, targetTwo, targetThree],
   isAnsBoxVisible: false,
+  feedbackMsg: null
 };
 
 const MARK_AS_FOUND = 'MARK_AS_FOUND';
 const SHOW_ANSWER_BOX = 'SHOW_ANSWER_BOX';
 const HIDE_ANSWER_BOX = 'HIDE_ANSWER_BOX';
+const SET_FEEDBACK = 'SET_FEEDBACK';
+
+const setFeedback = (message) => {
+  return {
+    type: SET_FEEDBACK,
+    payload: message,
+  };
+};
 
 const markAsFound = (id) => {
   return {
@@ -82,16 +91,25 @@ const reducer = (state = initialState, action) => {
         ...state,
         targets: updatedTargets,
       };
+
     case SHOW_ANSWER_BOX:
       return {
         ...state,
         isAnsBoxVisible: true,
       };
+
     case HIDE_ANSWER_BOX:
       return {
         ...state,
         isAnsBoxVisible: false,
       };
+
+    case SET_FEEDBACK:
+      return {
+        ...state,
+        feedbackMsg: action.payload,
+      };
+
     default:
       return state;
   }
@@ -101,4 +119,4 @@ const store = configureStore({
   reducer: reducer,
 });
 
-export { store, markAsFound, showAnswerBox, hideAnswerBox };
+export { store, markAsFound, showAnswerBox, hideAnswerBox, setFeedback };

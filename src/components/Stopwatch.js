@@ -6,6 +6,7 @@ import styled from 'styled-components/macro';
 const StyledDiv = styled.div`
   font-size: 2.5rem;
   font-weight: bold;
+  width: 160px;
 `;
 
 const convertSecondsToHMS = (timeInSeconds) => {

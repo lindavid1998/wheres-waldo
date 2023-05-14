@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components/macro';
 import Progress from './Progress';
 import Stopwatch from './Stopwatch';
+import Feedback from './Feedback';
 
 const Container = styled.div`
   position: -webkit-sticky;
@@ -25,8 +26,9 @@ const Header = () => {
   return (
     <Container>
       <Subcontainer>
-        <Progress></Progress>
-        <Stopwatch></Stopwatch>
+        <Progress />
+        <Feedback />
+        <Stopwatch />
       </Subcontainer>
     </Container>
   );

@@ -4,7 +4,7 @@ import backgroundImage from '../images/star_wars_illustration.jpeg';
 import AnswerBox from './AnswerBox';
 import { useState, useRef, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { hideAnswerBox, showAnswerBox, markAsFound } from '../store';
+import { hideAnswerBox, showAnswerBox, markAsFound, setFeedback } from '../store';
 import {
 	getImgDimensions,
 	convertTargetBoundaryToPixels,
@@ -39,7 +39,10 @@ const Game = () => {
 
 		if (isInputWithinBoundary(targetPos, ansBoxPosition)) {
 			dispatch(markAsFound(targetId))
-		} 
+			dispatch(setFeedback('Nice job!'))
+		} else {
+			dispatch(setFeedback('Wrong, try again'))
+		}
 
 		dispatch(hideAnswerBox());
 	};
