@@ -1,6 +1,12 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import styled from 'styled-components/macro';
+
+const StyledDiv = styled.div`
+  font-size: 2.5rem;
+  font-weight: bold;
+`;
 
 const convertSecondsToHMS = (timeInSeconds) => {
   let hours = Math.floor(timeInSeconds / 3600);
@@ -36,7 +42,7 @@ const Stopwatch = () => {
 
   const displayedTime = convertSecondsToHMS(secondsElapsed);
 
-  return <div data-testid="stopwatch">{displayedTime}</div>;
+  return <StyledDiv data-testid="stopwatch">{displayedTime}</StyledDiv>;
 };
 
 export default Stopwatch;
