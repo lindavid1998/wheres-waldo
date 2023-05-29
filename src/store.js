@@ -39,13 +39,21 @@ const targetThree = {
 const initialState = {
   targets: [targetOne, targetTwo, targetThree],
   isAnsBoxVisible: false,
-  feedbackMsg: null
+  feedbackMsg: null,
+  numOfAttempts: 0,
 };
 
 const MARK_AS_FOUND = 'MARK_AS_FOUND';
 const SHOW_ANSWER_BOX = 'SHOW_ANSWER_BOX';
 const HIDE_ANSWER_BOX = 'HIDE_ANSWER_BOX';
 const SET_FEEDBACK = 'SET_FEEDBACK';
+const INCREMENT_NUM_OF_ATTEMPTS = 'INCREMENT_NUM_OF_ATTEMPTS';
+
+const incrementNumOfAttempts = () => {
+  return {
+		type: INCREMENT_NUM_OF_ATTEMPTS,
+	};
+}
 
 const setFeedback = (message) => {
   return {
@@ -109,6 +117,12 @@ const reducer = (state = initialState, action) => {
         ...state,
         feedbackMsg: action.payload,
       };
+    
+    case INCREMENT_NUM_OF_ATTEMPTS:
+      return {
+				...state,
+        numOfAttempts: state.numOfAttempts + 1,
+			};
 
     default:
       return state;
@@ -119,4 +133,11 @@ const store = configureStore({
   reducer: reducer,
 });
 
-export { store, markAsFound, showAnswerBox, hideAnswerBox, setFeedback };
+export {
+	store,
+	markAsFound,
+	showAnswerBox,
+	hideAnswerBox,
+	setFeedback,
+	incrementNumOfAttempts,
+};

@@ -17,16 +17,17 @@ const Message = styled.div`
 
 const Feedback = () => {
   const message = useSelector((state) => state.feedbackMsg);
+  const numOfAttempts = useSelector((state) => state.numOfAttempts);
   const isPositive = message === 'Nice job!';
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
-    setIsVisible(true);
-    const timer = setTimeout(() => {
-      setIsVisible(false);
-    }, 2000); 
-    return () => clearTimeout(timer);
-  }, [message]);
+		setIsVisible(true);
+		const timer = setTimeout(() => {
+			setIsVisible(false);
+		}, 2000);
+		return () => clearTimeout(timer);
+	}, [message, numOfAttempts]);
 
   return (
     <Message isPositive={isPositive} isVisible={isVisible}>
