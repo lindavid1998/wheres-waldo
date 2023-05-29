@@ -3,7 +3,7 @@ import Stopwatch from './Stopwatch';
 import '@testing-library/jest-dom';
 import { act } from 'react-dom/test-utils';
 import { Provider } from 'react-redux';
-import { store } from '../store';
+import { store } from '../redux/store';
 
 jest.useFakeTimers();
 
@@ -21,10 +21,5 @@ describe('Stopwatch', () => {
       jest.advanceTimersByTime(5000);
     });
     expect(screen.getByText('00:00:05')).toBeInTheDocument();
-
-    // act(() => {
-    // 	jest.advanceTimersByTime(60000);
-    // });
-    // expect(screen.getByText('00:01:05')).toBeInTheDocument();
   });
 });

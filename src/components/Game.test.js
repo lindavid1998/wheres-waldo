@@ -8,7 +8,7 @@ import {
 import userEvent from '@testing-library/user-event';
 import { act } from 'react-dom/test-utils';
 import { Provider } from 'react-redux';
-import { store } from '../store';
+import { store } from '../redux/store';
 import '@testing-library/jest-dom';
 
 describe('Game', () => {

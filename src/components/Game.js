@@ -10,7 +10,7 @@ import {
 	markAsFound,
 	setFeedback,
 	incrementNumOfAttempts,
-} from '../store';
+} from '../redux/actions';
 import {
 	getImgDimensions,
 	convertTargetBoundaryToPixels,

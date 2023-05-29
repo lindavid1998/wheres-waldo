@@ -1,7 +1,7 @@
 import { render, screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Provider } from 'react-redux';
-import { store } from './store';
+import { store } from './redux/store';
 import App from './App';
 import { isInputWithinBoundary } from './utils/helpers';
 import '@testing-library/jest-dom';
