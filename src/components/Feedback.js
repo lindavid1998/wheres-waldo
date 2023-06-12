@@ -56,7 +56,8 @@ const Button = styled.button`
 	}
 `;
 
-const Feedback = () => {
+const Feedback = (props) => {
+	const { submitTime } = props;
 	const message = useSelector((state) => state.feedbackMsg);
 	const numOfAttempts = useSelector((state) => state.numOfAttempts);
 	const targets = useSelector((state) => state.targets);
@@ -83,7 +84,7 @@ const Feedback = () => {
 				{message}
 			</Message>
 			<Buttons isGameComplete={isGameComplete}>
-				<Button $primary>Submit time</Button>
+				<Button $primary onClick={submitTime}>Submit time</Button>
 				<Button>Leaderboard</Button>
 			</Buttons>
 		</Main>

@@ -9,9 +9,10 @@ import 'jest-styled-components';
 import { act } from 'react-dom/test-utils';
 
 jest.mock('./utils/helpers', () => ({
-  getImgDimensions: jest.fn(),
-  convertTargetBoundaryToPixels: jest.fn(),
-  isInputWithinBoundary: jest.fn(),
+	getImgDimensions: jest.fn(),
+	convertTargetBoundaryToPixels: jest.fn(),
+	isInputWithinBoundary: jest.fn(),
+  convertSecondsToHMS: jest.fn(),
 }));
 
 jest.useFakeTimers();

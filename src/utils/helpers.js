@@ -25,3 +25,20 @@ export const isInputWithinBoundary = (targetPos, inputPos) => {
 	const isInputWithinY = y < targetPos.south.y && y > targetPos.north.y;
 	return isInputWithinX && isInputWithinY;
 };
+
+export const convertSecondsToHMS = (timeInSeconds) => {
+	let hours = Math.floor(timeInSeconds / 3600);
+	let minutes = Math.floor((timeInSeconds - hours * 3600) / 60);
+	let seconds = timeInSeconds - hours * 3600 - minutes * 60;
+	let timeArray = [hours.toString(), minutes.toString(), seconds.toString()];
+
+	timeArray = timeArray.map((time) => {
+		if (time.length === 1) {
+			return '0' + time;
+		} else {
+			return time;
+		}
+	});
+
+	return timeArray.join(':');
+};
