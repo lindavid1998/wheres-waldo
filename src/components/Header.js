@@ -55,15 +55,17 @@ const Header = () => {
 
 	const submitTime = async () => {
 		try {
+			let user = prompt('Please enter your name');
 			const docRef = await addDoc(collection(db, 'leaderboard'), {
+				user: user,
 				time: timeInSeconds,
 			});
 			console.log('Document written with ID: ', docRef.id);
 		} catch (e) {
 			console.error('Error adding document: ', e);
 		}
-  };
-  
+	};
+
 	return (
 		<Container>
 			<Subcontainer>
