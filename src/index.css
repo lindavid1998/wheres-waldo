@@ -12,9 +12,7 @@
 body {
 	background-color: var(--bg-color);
 	color: var(--text-color);
-	/* font-family: 'Open Sans', Arial, Helvetica, sans-serif; */
 	font-family: 'Poppins', sans-serif;
-	/* padding: 20px; */
 	margin: 0;
 }
 
@@ -22,9 +20,6 @@ a {
 	color: var(--link-color);
 }
 
-button,
-a:hover,
-a:focus {
-	background-color: var(--accent-color);
-	color: var(--text-color);
+a:hover {
+  background-color: transparent; /* Removes the background color on hover */
 }

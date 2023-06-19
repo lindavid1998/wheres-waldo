@@ -2,6 +2,7 @@ import React from 'react';
 import styled, { keyframes } from 'styled-components/macro';
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const fadeInAnimation = keyframes`
   0% {
@@ -52,7 +53,7 @@ const Button = styled.button`
 	animation: ${fadeInAnimation} 1.5s forwards;
 	&:hover {
 		transform: translateY(-5px);
-    cursor: pointer;
+		cursor: pointer;
 	}
 `;
 
@@ -84,8 +85,15 @@ const Feedback = (props) => {
 				{message}
 			</Message>
 			<Buttons isGameComplete={isGameComplete}>
-				<Button $primary onClick={submitTime}>Submit time</Button>
-				<Button>Leaderboard</Button>
+				<Button $primary onClick={submitTime}>
+					Submit time
+				</Button>
+				<Link
+					style={{ textDecoration: 'none' }}
+					to={'/wheres-waldo/leaderboard'}
+				>
+					<Button>Leaderboard</Button>
+				</Link>
 			</Buttons>
 		</Main>
 	);
