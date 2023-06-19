@@ -45,6 +45,7 @@
     ]
   },
   "devDependencies": {
+    "@craco/craco": "^7.1.0",
     "gh-pages": "^5.0.0",
     "redux-mock-store": "^1.5.4"
   }

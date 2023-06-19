@@ -25,6 +25,7 @@ const Subcontainer = styled.div`
 	justify-content: space-between;
 	margin: 0 auto;
 	padding: 0 30px;
+	position: relative;
 `;
 
 const Stopwatch = styled.div`
@@ -32,6 +33,12 @@ const Stopwatch = styled.div`
 	font-weight: bold;
 	width: 160px;
 `;
+
+const PhotoCred = styled.div`
+	position: absolute;
+	top: 0;
+	right: 0;
+`
 
 const Header = () => {
 	const [secondsElapsed, setSecondsElapsed] = useState(0);
@@ -58,7 +65,8 @@ const Header = () => {
 			let user = prompt('Please enter your name');
 			const docRef = await addDoc(collection(db, 'leaderboard'), {
 				user: user,
-				time: timeInSeconds,
+				displayedTime: timeInSeconds,
+				time: secondsElapsed,
 			});
 			console.log('Document written with ID: ', docRef.id);
 		} catch (e) {
@@ -69,6 +77,7 @@ const Header = () => {
 	return (
 		<Container>
 			<Subcontainer>
+				<PhotoCred>Illustration credit: Gus Morais OC</PhotoCred>
 				<Progress />
 				<Feedback submitTime={submitTime} />
 				<Stopwatch data-testid='stopwatch'>{timeInSeconds}</Stopwatch>

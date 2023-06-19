@@ -4,6 +4,7 @@ import '@testing-library/jest-dom';
 import { act } from 'react-dom/test-utils';
 import { Provider } from 'react-redux';
 import { store } from '../redux/store';
+import { BrowserRouter } from 'react-router-dom';
 
 jest.useFakeTimers();
 
@@ -12,7 +13,8 @@ describe('Header', () => {
 		render(
 			<Provider store={store}>
 				<Header />
-			</Provider>
+			</Provider>,
+			{ wrapper: BrowserRouter }
 		);
 
 		expect(screen.getByText('00:00:00')).toBeInTheDocument();
