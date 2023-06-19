@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/wheres-waldo/static/css/main.26d847cc.css",
-    "main.js": "/wheres-waldo/static/js/main.52f9f21d.js",
+    "main.css": "/wheres-waldo/static/css/main.9168ccdc.css",
+    "main.js": "/wheres-waldo/static/js/main.8239e3e7.js",
     "static/media/star_wars_illustration.jpeg": "/wheres-waldo/static/media/star_wars_illustration.ff5e4a6b44fc40294d78.jpeg",
     "static/media/han_solo.png": "/wheres-waldo/static/media/han_solo.2bb3cc117f195c585fbb.png",
     "static/media/finn.png": "/wheres-waldo/static/media/finn.c48070056568930af3ae.png",
     "static/media/R2D2.png": "/wheres-waldo/static/media/R2D2.aa24d0b9ee23623dd997.png",
     "index.html": "/wheres-waldo/index.html",
-    "main.26d847cc.css.map": "/wheres-waldo/static/css/main.26d847cc.css.map",
-    "main.52f9f21d.js.map": "/wheres-waldo/static/js/main.52f9f21d.js.map"
+    "main.9168ccdc.css.map": "/wheres-waldo/static/css/main.9168ccdc.css.map",
+    "main.8239e3e7.js.map": "/wheres-waldo/static/js/main.8239e3e7.js.map"
   },
   "entrypoints": [
-    "static/css/main.26d847cc.css",
-    "static/js/main.52f9f21d.js"
+    "static/css/main.9168ccdc.css",
+    "static/js/main.8239e3e7.js"
   ]
 }
