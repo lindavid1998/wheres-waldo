@@ -3,22 +3,23 @@ import styled from 'styled-components/macro';
 import { getFirestore, getDocs, collection } from 'firebase/firestore';
 import TimeEntry from './TimeEntry';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 const db = getFirestore();
 const colRef = collection(db, 'leaderboard');
 
 const Main = styled.div`
-  max-width: 850px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 13px;
+	max-width: 850px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	padding: 13px;
 `;
 
 const Button = styled.button`
-  background: black;
-  color: white;
+	background: black;
+	color: white;
 	font-size: 1em;
 	padding: 0.5rem;
 	border: 2px solid white;
@@ -30,23 +31,24 @@ const Button = styled.button`
 `;
 
 const Header = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+`;
 
 const Leaderboard = () => {
 	const [entries, setEntries] = useState([]);
+	const dispatch = useDispatch();
 
 	useEffect(() => {
-    const fetchEntries = async () => {
-      const fetchedEntries = [];
-      const docsSnap = await getDocs(colRef);
-      docsSnap.forEach(doc => {
-        fetchedEntries.push(doc.data())
-      })
+		const fetchEntries = async () => {
+			const fetchedEntries = [];
+			const docsSnap = await getDocs(colRef);
+			docsSnap.forEach((doc) => {
+				fetchedEntries.push(doc.data());
+			});
 
-      fetchedEntries.sort((a, b) => (a.time - b.time))
+			fetchedEntries.sort((a, b) => a.time - b.time);
 			setEntries(fetchedEntries);
 		};
 
@@ -57,11 +59,14 @@ const Leaderboard = () => {
 		<Main>
 			<Header>
 				<h1>Leaderboard</h1>
-				<Link
-					style={{ textDecoration: 'none' }}
-					to={'/wheres-waldo/'}
-				>
-					<Button>Back to game</Button>
+				<Link style={{ textDecoration: 'none' }} to={'/wheres-waldo/'}>
+					<Button
+						onClick={() => {
+							dispatch({ type: 'RESET_STATE' });
+						}}
+					>
+						Back to game
+					</Button>
 				</Link>
 			</Header>
 

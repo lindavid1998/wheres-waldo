@@ -7,8 +7,8 @@ import {
 	HIDE_ANSWER_BOX,
 	SET_FEEDBACK,
 	INCREMENT_NUM_OF_ATTEMPTS,
+	RESET_STATE
 } from './constants';
-
 
 const targetOne = {
 	id: 0,
@@ -92,6 +92,9 @@ export const reducer = (state = initialState, action) => {
 				...state,
 				numOfAttempts: state.numOfAttempts + 1,
 			};
+		
+		case RESET_STATE:
+			return initialState;
 
 		default:
 			return state;

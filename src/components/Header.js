@@ -4,6 +4,7 @@ import Progress from './Progress';
 import Feedback from './Feedback';
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { setFeedback } from '../redux/actions';
 import { convertSecondsToHMS } from '../utils/helpers';
 import { collection, addDoc } from 'firebase/firestore';
@@ -45,6 +46,7 @@ const Header = () => {
 	const targets = useSelector((state) => state.targets);
 	const isGameComplete = targets.every((target) => target.isFound);
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		let intervalId;
@@ -69,6 +71,7 @@ const Header = () => {
 				time: secondsElapsed,
 			});
 			console.log('Document written with ID: ', docRef.id);
+			navigate('/wheres-waldo/leaderboard');
 		} catch (e) {
 			console.error('Error adding document: ', e);
 		}
