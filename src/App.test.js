@@ -28,6 +28,18 @@ const clickOnAnswer = async (answer) => {
 };
 
 describe('App', () => {
+	let playMock;
+
+	beforeAll(() => {
+		playMock = jest
+			.spyOn(HTMLMediaElement.prototype, 'play')
+			.mockImplementation(() => {});
+	});
+
+	afterAll(() => {
+		playMock.mockRestore();
+	});
+
 	it('should update icons in progress bar based on whether the answer is correct', async () => {
 		isInputWithinBoundary.mockReturnValueOnce(false).mockReturnValueOnce(true);
 		render(

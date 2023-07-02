@@ -12,6 +12,18 @@ import { store } from '../redux/store';
 import '@testing-library/jest-dom';
 
 describe('Game', () => {
+	let playMock;
+
+	beforeAll(() => {
+		playMock = jest
+			.spyOn(HTMLMediaElement.prototype, 'play')
+			.mockImplementation(() => {});
+	});
+
+	afterAll(() => {
+		playMock.mockRestore();
+	});
+
 	it('should show the answer box when the image is clicked', async () => {
 		const user = userEvent.setup();
 		render(
@@ -49,7 +61,7 @@ describe('Game', () => {
 			</Provider>
 		);
 		user.click(screen.getByTestId('game-image'));
-		await waitFor(() => screen.findByTestId('AnswerBox'))
+		await waitFor(() => screen.findByTestId('AnswerBox'));
 		userEvent.keyboard('[Escape]');
 		await waitForElementToBeRemoved(() => screen.queryByTestId('AnswerBox'));
 	});

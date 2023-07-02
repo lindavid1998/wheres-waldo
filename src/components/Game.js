@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 import backgroundImage from '../images/star_wars_illustration.jpeg';
+import correctAnswer from '../sounds/correctAnswer.wav';
+import wrongAnswer from '../sounds/wrongAnswer.mp3';
 import AnswerBox from './AnswerBox';
 import { useState, useRef, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
@@ -16,6 +18,8 @@ import {
 	convertTargetBoundaryToPixels,
 	isInputWithinBoundary,
 } from '../utils/helpers';
+
+
 
 const Img = styled.img`
 	width: 100%;
@@ -44,9 +48,11 @@ const Game = () => {
 		const targetPos = convertTargetBoundaryToPixels(imgDimensions, target);
 		dispatch(incrementNumOfAttempts());
 		if (isInputWithinBoundary(targetPos, ansBoxPosition)) {
+			new Audio(correctAnswer).play();
 			dispatch(markAsFound(targetId));
 			dispatch(setFeedback('Nice job!'));
 		} else {
+			new Audio(wrongAnswer).play();
 			dispatch(setFeedback('Wrong, try again'));
 		}
 		dispatch(hideAnswerBox());
