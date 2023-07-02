@@ -1,17 +1,19 @@
 {
   "files": {
     "main.css": "/wheres-waldo/static/css/main.9168ccdc.css",
-    "main.js": "/wheres-waldo/static/js/main.8239e3e7.js",
+    "main.js": "/wheres-waldo/static/js/main.4abeea61.js",
     "static/media/star_wars_illustration.jpeg": "/wheres-waldo/static/media/star_wars_illustration.ff5e4a6b44fc40294d78.jpeg",
+    "static/media/correctAnswer.wav": "/wheres-waldo/static/media/correctAnswer.f132b45f6195b105c23f.wav",
     "static/media/han_solo.png": "/wheres-waldo/static/media/han_solo.2bb3cc117f195c585fbb.png",
     "static/media/finn.png": "/wheres-waldo/static/media/finn.c48070056568930af3ae.png",
     "static/media/R2D2.png": "/wheres-waldo/static/media/R2D2.aa24d0b9ee23623dd997.png",
+    "static/media/wrongAnswer.mp3": "/wheres-waldo/static/media/wrongAnswer.01b654edab0a24838b1c.mp3",
     "index.html": "/wheres-waldo/index.html",
     "main.9168ccdc.css.map": "/wheres-waldo/static/css/main.9168ccdc.css.map",
-    "main.8239e3e7.js.map": "/wheres-waldo/static/js/main.8239e3e7.js.map"
+    "main.4abeea61.js.map": "/wheres-waldo/static/js/main.4abeea61.js.map"
   },
   "entrypoints": [
     "static/css/main.9168ccdc.css",
-    "static/js/main.8239e3e7.js"
+    "static/js/main.4abeea61.js"
   ]
 }
