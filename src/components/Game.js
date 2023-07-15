@@ -46,7 +46,9 @@ const Game = () => {
 		const imgDimensions = getImgDimensions(imageRef.current);
 		const target = targets.find((target) => target.id === targetId);
 		const targetPos = convertTargetBoundaryToPixels(imgDimensions, target);
+
 		dispatch(incrementNumOfAttempts());
+		
 		if (isInputWithinBoundary(targetPos, ansBoxPosition)) {
 			new Audio(correctAnswer).play();
 			dispatch(markAsFound(targetId));

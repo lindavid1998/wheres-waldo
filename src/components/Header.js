@@ -39,7 +39,7 @@ const PhotoCred = styled.div`
 	position: absolute;
 	top: 0;
 	right: 0;
-`
+`;
 
 const Header = () => {
 	const [secondsElapsed, setSecondsElapsed] = useState(0);
@@ -49,16 +49,23 @@ const Header = () => {
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		let intervalId;
+		const incrementSeconds = () => {
+			setSecondsElapsed((prevSecondsElapsed) => prevSecondsElapsed + 1);
+		};
+
+		let intervalId = setInterval(incrementSeconds, 1000);
+
 		if (isGameComplete) {
 			dispatch(setFeedback('Game complete'));
-		} else {
-			intervalId = setInterval(() => {
-				setSecondsElapsed((prevSecondsElapsed) => prevSecondsElapsed + 1);
-			}, 1000);
+			clearInterval(intervalId);
 		}
+
 		return () => clearInterval(intervalId);
 	}, [isGameComplete]);
+
+	useEffect(() => {
+		return () => dispatch({ type: 'RESET_STATE' });
+	}, []);
 
 	const timeInSeconds = convertSecondsToHMS(secondsElapsed);
 

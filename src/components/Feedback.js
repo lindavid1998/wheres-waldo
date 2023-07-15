@@ -66,7 +66,7 @@ const Feedback = (props) => {
 
 	const isPositive = isGameComplete || message?.includes('Nice job!') || false;
 
-	const [isVisible, setIsVisible] = useState(true);
+	const [isVisible, setIsVisible] = useState(false);
 
 	useEffect(() => {
 		setIsVisible(true);
