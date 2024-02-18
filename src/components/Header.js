@@ -27,19 +27,29 @@ const Subcontainer = styled.div`
 	margin: 0 auto;
 	padding: 0 30px;
 	position: relative;
+	flex-direction: column;
+
+	@media (min-width: 768px) {
+		flex-direction: row;
+	}
 `;
 
 const Stopwatch = styled.div`
 	font-size: 2.5rem;
 	font-weight: bold;
-	width: 160px;
 `;
 
 const PhotoCred = styled.div`
-	position: absolute;
-	top: 0;
-	right: 0;
+	padding: 0 30px;
+	position: relative;
+	bottom: 16px;
 `;
+
+const Instructions = styled.h2`
+	padding: 30px;
+	font-weight: normal;
+	margin: 0
+`
 
 const Header = () => {
 	const [secondsElapsed, setSecondsElapsed] = useState(0);
@@ -86,8 +96,15 @@ const Header = () => {
 
 	return (
 		<Container>
+			<Instructions>
+				<strong>Instructions: </strong>Find all targets below on the image. When
+				found, click on their position in the image and select the appropriate
+				label.
+			</Instructions>
+
+			<PhotoCred>Illustration credit: Gus Morais OC</PhotoCred>
+
 			<Subcontainer>
-				<PhotoCred>Illustration credit: Gus Morais OC</PhotoCred>
 				<Progress />
 				<Feedback submitTime={submitTime} />
 				<Stopwatch data-testid='stopwatch'>{timeInSeconds}</Stopwatch>
