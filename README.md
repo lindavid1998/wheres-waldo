@@ -53,33 +53,33 @@ An example of a test is shown below:
 
 ```js
 it('should stop the stopwatch when all targets have been found', async () => {
-		isInputWithinBoundary.mockReturnValue(true);
-		render(
-			<Provider store={store}>
-				<App />
-			</Provider>,
-			{ wrapper: BrowserRouter }
-		);
-		const stopwatch = screen.getByTestId('stopwatch');
-		const timeBefore = stopwatch.textContent;
+	isInputWithinBoundary.mockReturnValue(true);
+	render(
+		<Provider store={store}>
+			<App />
+		</Provider>,
+		{ wrapper: BrowserRouter }
+	);
+	const stopwatch = screen.getByTestId('stopwatch');
+	const timeBefore = stopwatch.textContent;
 
-		const answers = ['R2D2', 'Finn', 'Han Solo'];
-		for (let i = 0; i < answers.length; i++) {
-			let answer = answers[i];
-			await clickOnAnswer(answer);
-			await waitFor(() => {
-				expect(screen.getByText(answer)).toHaveStyleRule(
-					'color',
-					'var(--success-color)'
-				);
-			});
-		}
-
-		act(() => {
-			jest.advanceTimersByTime(30000);
+	const answers = ['R2D2', 'Finn', 'Han Solo'];
+	for (let i = 0; i < answers.length; i++) {
+		let answer = answers[i];
+		await clickOnAnswer(answer);
+		await waitFor(() => {
+			expect(screen.getByText(answer)).toHaveStyleRule(
+				'color',
+				'var(--success-color)'
+			);
 		});
-		expect(stopwatch.textContent).toEqual(timeBefore);
+	}
+
+	act(() => {
+		jest.advanceTimersByTime(30000);
 	});
+	expect(stopwatch.textContent).toEqual(timeBefore);
+});
 ```
 
 The tests can be run from the root directory using:
