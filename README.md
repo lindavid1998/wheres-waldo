@@ -15,6 +15,22 @@ When a user clicks on the image, the mouse position is saved and an answer box p
 
 What made this difficult at first was that there needed to be a way to account for different screen sizes. Hard coding absolute pixel positions in the answer key wouldn't work for this. Instead, the correct positions for each target were stored as proportions (i.e. target A is 20% down and 40% right from the top left corner). A restriction was also placed on the image such that the aspect ratio remained constant when resizing. User mouse positions were then converted to proportions of the aspect ratio and compared against the answer key.
 
+There also needed to be a tolerance built in (i.e. user can be X pixels within target to be correct). Otherwise it would be near impossible to complete the game. This was resolved by setting the correct position as a box (defined by two corners), and checking that the user click was within the box. 
+
+### Redux for State Management
+
+Redux was used to capture the game state related to finding targets, displaying feedback, and tracking user attempts. The following variables were captured in the state:
+
+1. `targets`: An array of target objects, each with the following properties:
+    - `id`: A unique identifier for the target.
+    - `name`: The name of the target (e.g., 'R2D2', 'Finn', 'Han Solo').
+    - `imgSrc`: The source path for the target's image.
+    - `isFound`: A boolean indicating whether the target has been found.
+    - `boundary`: An object defining the north and south coordinates for the target.
+2. `isAnsBoxVisible`: A boolean indicating whether the answer box is currently visible.
+3. `feedbackMsg`: A message string for feedback.
+4. `numOfAttempts`: A number representing the count of attempts made by the user.
+
 ## Tech Stack
 
 **Frontend:** React, Redux, Styled Components, Jest
@@ -47,7 +63,6 @@ Snapshots:   0 total
 Time:        6.878 s
 Ran all test suites.
 ```
-
 
 ## Acknowledgements
 
