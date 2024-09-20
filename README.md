@@ -25,7 +25,29 @@ App is hosted on GitHub.
 
 ## Testing
 
-TBD
+Frontend testing was performed using Jest. The tests verify that:
+- The answer box shows when a user clicks on the image
+- The answer box hides when a user submits an answer or hits the Esc key
+- The corresponding target in the progress bar is marked correct when the answer is correct
+- The stopwatch elapses time correctly
+- The stopwatch stops when all targets have been found
+
+The tests can be run from the root directory using:
+```
+$ npm run test
+
+
+ PASS  src/components/Header.test.js
+ PASS  src/components/Game.test.js
+ PASS  src/App.test.js
+
+Test Suites: 3 passed, 3 total
+Tests:       6 passed, 6 total
+Snapshots:   0 total
+Time:        6.878 s
+Ran all test suites.
+```
+
 
 ## Acknowledgements
 
