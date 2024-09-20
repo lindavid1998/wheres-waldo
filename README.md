@@ -42,11 +42,45 @@ App is hosted on GitHub.
 ## Testing
 
 Frontend testing was performed using Jest. The tests verify that:
+
 - The answer box shows when a user clicks on the image
 - The answer box hides when a user submits an answer or hits the Esc key
 - The corresponding target in the progress bar is marked correct when the answer is correct
 - The stopwatch elapses time correctly
 - The stopwatch stops when all targets have been found
+
+An example of a test is shown below:
+
+```js
+it('should stop the stopwatch when all targets have been found', async () => {
+		isInputWithinBoundary.mockReturnValue(true);
+		render(
+			<Provider store={store}>
+				<App />
+			</Provider>,
+			{ wrapper: BrowserRouter }
+		);
+		const stopwatch = screen.getByTestId('stopwatch');
+		const timeBefore = stopwatch.textContent;
+
+		const answers = ['R2D2', 'Finn', 'Han Solo'];
+		for (let i = 0; i < answers.length; i++) {
+			let answer = answers[i];
+			await clickOnAnswer(answer);
+			await waitFor(() => {
+				expect(screen.getByText(answer)).toHaveStyleRule(
+					'color',
+					'var(--success-color)'
+				);
+			});
+		}
+
+		act(() => {
+			jest.advanceTimersByTime(30000);
+		});
+		expect(stopwatch.textContent).toEqual(timeBefore);
+	});
+```
 
 The tests can be run from the root directory using:
 ```
